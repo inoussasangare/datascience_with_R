@@ -1,0 +1,95 @@
+---
+documentclass: scrartcl
+title: "Introduction à la data sciences avec R."
+author: "SANGARE Inoussa"
+date: "`r  Sys.Date()`"
+date-format: "MM-YYYY"
+mainfont: Times New Roman
+linestretch: 1.5
+fontsize: 12 pt
+toc: true
+toc-title: "Sommaire"
+hyperrefoptions: 
+  linktoc = all
+format: pdf
+lang: fr
+bibliography: references.bib
+---
+
+# Préfaces
+
+Ce document constitue une introduction à la sciences des données avec le logiciel de programmation R. Il est inspiré des documents suivants :
+
+-   R for data sciences, 2nd édition
+-   la documentation du Package Tidyverse [@tidyverse]
+
+# Introduction
+
+La Data Science est la science des données. C'est la discipline qui permet d'explorer et d'analyser les données brutes pour les transformer en informations précieuses permettant d'anticiper et de résoudre des problèmes. C'est une science interdisciplinaire s'appuyant sur des méthodes scientifiques, des algorithmes, des processus et d'autres systémes afin d'exploiter de grands ensembles de données.
+Plusieurs logiciels permettent d'exploiter les grand ensembles de données. Ce document va s'appesantir sur le logiciel de programmation **R**.
+La science des données est un vaste domaine, et il est impossible de tout maîtriser en lisant un seul livre. Ce document est une introduction a la science des données avec R.
+
+-   Tout d'abord, vous devez importer vos données dans R Si vous ne pouvez pas obtenir vos données dans R, vous ne pouvez pas faire de science des données dessus ! Une fois que vous avez importé vos données, c'est une bonne idée de les ranger 
+
+-   Ranger vos données signifie les stocker sous une forme cohérente qui correspond à la sémantique de l'ensemble de données avec la façon dont elles sont stockées Une fois que vous avez des données bien rangées, une prochaine étape courante consiste à les transformer .
+
+-   La transformation comprend la réduction des observations d'intérêt (comme toutes les personnes d'une ville ou toutes les données de l'année précédente), la création de nouvelles variables qui sont des fonctions de variables.
+
+-   La visualisation est une activité fondamentalement humaine. Une bonne visualisation vous montrera des choses auxquelles vous ne vous attendiez pas ou soulèvera de nouvelles questions sur les données. Une bonne visualisation peut également indiquer que vous posez la mauvaise question ou que vous devez collecter des données différentes. Les visualisations peuvent vous surprendre, mais elles ne s'adaptent pas particulièrement bien car elles nécessitent un humain pour les interpréter. Les modèles sont des outils complémentaires à la visualisation. Une fois vos questions suffisamment précises, vous pouvez utiliser un modèle pour y répondre.
+
+-   Les modèles sont un outil fondamentalement mathématique ou informatique, de sorte qu'ils évoluent généralement bien. Même quand ce n'est pas le cas, il est généralement moins cher d'acheter plus d'ordinateurs que d'acheter plus de cerveaux ! Mais chaque modèle fait des hypothèses et, de par sa nature même, un modèle ne peut pas remettre en question ses propres hypothèses. Cela signifie qu'un modèle ne peut pas fondamentalement vous surprendre.
+
+# Importation des données
+
+L'importation des données dan le logiciel R est le début de la sciences des Données. Cette importation depend du type de fichiers ou sont stockées vos données. les données peuvent être :
+
+-    sous forme de feuille de calcul Excel (csv1, csv2, xlsx ...) ou googlesheet;
+
+-   sous de fichier texte (txt) ;
+
+-   ou sont dans une base de données qu'il faut extraire;
+
+-   les données peuvent être sous format memoire surtout au format paquet.
+
+-   Il y'a également les données hierarchiques y compris les listes ou dans une page Web st le début
+
+## les fichiers sous format tableur
+
+les tableurs sont des fichiers 
+
+## les fichiers textes
+
+
+## les donnéées stockées dans les bases de données
+
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r,comment = NA}
+
+Gender <- gl(2,1000,labels = c("Men","Women"))
+SmokerM <- sample(c("Y","N"),1000,replace = T , prob = c(.3,.7))
+SmokerW <- sample(c("Y","N"),1000,replace = T , prob = c(.5,.5))
+Smoker <- c(SmokerM,SmokerW)
+
+mydata  <- data.frame(Gender,Smoker)
+table(mydata$Gender,mydata$Smoker)
+knitr::kable(table(mydata$Gender,mydata$Smoker))
+```
